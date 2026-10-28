@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-emotion</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Poppins:wght@300;400;600&display=swap');
+    </style>
+
+    <!-- Libreria que genera qr-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+<body>
+    <div class="dj-circle"></div>
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/logo sin fondo.png" alt="logo sitio web">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html"class="active">Inicio</a></li>
+                <li><a href="Sobre nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="Test.html">Sentir </a></li>
+                <li><a href="Blogs.html">Blogs</a></li>
+            </ul>
+        </nav>
+    </header>
+   <main class="hero">
+    <section class="hero-text">
+        <header>
+            <p class="tagline1">¡Bienvenido a E-emotion!</p>
+            <h1>Tus emociones</h1> </header>
+        
+        <em class="highlight">importan♡</em> <div class="hero-cta">
+            <a class="parrafoFrase">🧠 CONECTA CONTIGO</a>
+        </div>
+    </section>
+
+    <section class="hero-visual">
+        <figure class="image-wrapper">
+            <img src="imagenes/inicio.png" alt="Personajes que representan las emociones de E-emotion">
+        </figure>
+    </section>
+</main>
+  <section class="features-container">
+
+    <figure class="feature-item">
+        <img src="imagenes/icono entiende.png" alt="Ilustración del cerebro para Entiende" class="feature-icon">
+        <figcaption class="feature-text">Entiende</figcaption>
+    </figure>
+
+    <figure class="feature-item">
+        <img src="imagenes/icono expresa.png" alt="Ilustración del corazón para Expresa" class="feature-icon">
+        <figcaption class="feature-text">Expresa</figcaption>
+    </figure>
+
+    <figure class="feature-item">
+        <img src="imagenes/icono_crece.png" alt="Ilustración de la diana para Crece" class="feature-icon">
+        <figcaption class="feature-text">Crece</figcaption>
+    </figure>
+
+    <figure class="feature-item">
+        <img src="imagenes/icono conecta.png" alt="Ilustración de comunidad para Conecta" class="feature-icon">
+        <figcaption class="feature-text">Conecta</figcaption>
+    </figure>
+
+</section>
+
+<!-- SECCION QR -->
+<section class="qr-section">
+    <div class="qr-card">
+        <h2>Llévate E-emotion en tu teléfono</h2>
+        <p>Escanea el código con tu cámara para abrir el sitio.</p>
+
+        <div class="qr-marco">
+            <div id="qr-codigo"></div>
+            <i></i>
+        </div>
+
+        <div class="qr-botones">
+            <button type="button" class="qr-btn-principal" id="qr-descargar">Descargar QR</button>
+            <button type="button" class="qr-btn-secundario" id="qr-copiar">Copiar enlace</button>
+        </div>
+        <p class="qr-aviso" id="qr-aviso" role="status"></p>
+    </div>
+</section>
+<!-- QR -->
+
+<footer class="custom-footer">
+
+    <div class="footer-container">
+        
+        <a href="https://www.instagram.com/e_emotion01?igsh=MWoxMTg4eGlrMnR6Yw%3D%3D&utm_source=qr" target="_blank" class="footer-item">
+            <i class="fa-brands fa-instagram icon-instagram"></i>
+            <span class="footer-text">e_emotion01</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@e_emotion_?is_from_webapp=1&sender_device=pc" target="_blank" class="footer-item">
+            <i class="fa-brands fa-tiktok icon-tiktok"></i>
+            <span class="footer-text">e_emotion_</span>
+        </a>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.emotion2026@gmail.com&su=Contacto" class="footer-item">
+            <i class="fa-solid fa-envelope icon-email"></i>
+            <span class="footer-text">e.emotion2026@gmail.com</span>
+        </a>
+
+        <a href="tel:+574444448" class="footer-item phone-item">
+            <span class="footer-text weight-bold">Línea Amiga &nbsp;(604) 444 44 48</span>
+        </a>
+
+    </div>
+    </footer>
+
+    <!-- Contenedor Flotante de Ayuda -->
+    <div class="ayuda-flotante-container">
+        <!-- 💚 Botón 1: WhatsApp Oficial del Distrito de Medellín (Ideal para PC y Móvil) 💚 -->
+        <a href="https://api.whatsapp.com/send?phone=573016044444&text=Hola,%20necesito%20orientaci%C3%B3n%20psicol%C3%B3gica" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-ayuda btn-whatsapp" 
+           title="Chatear con el WhatsApp Oficial de Medellín">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Activar la linea amiga (Whatsapp)</span>
+        </a>
+
+        <!-- 📞 Botón 2: Llamada directa a la Línea Amiga 106 📞 -->
+        <a href="tel:106" class="btn-ayuda btn-106" title="Llamar a la Línea Amiga 106">
+            <i class="fa-solid fa-phone"></i>
+            <span> ¿Necesitas ayuda? Llamar al 106</span>
+        </a>
+    </div>
+
+    <!-- ScriptQR -->
+    <script>
+        const QR_DIRECCION = "";
+
+        const qrUrl = QR_DIRECCION || (window.location.origin + window.location.pathname);
+        const qrAviso = document.getElementById("qr-aviso");
+
+        function qrMostrarAviso(texto, duracion) {
+            qrAviso.textContent = texto;
+            if (duracion) setTimeout(() => (qrAviso.textContent = ""), duracion);
+        }
+
+        new QRCode(document.getElementById("qr-codigo"), {
+            text: qrUrl,
+            width: 400,
+            height: 400,
+            colorDark: "#2b2b3a",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        // necesario abrir el sitio desde el link de cloudflare
+        const esLocal = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+        if (esLocal) {
+            qrMostrarAviso("Abre el sitio desde la dirección del túnel para que el QR funcione en otros teléfonos.");
+        }
+
+        document.getElementById("qr-descargar").addEventListener("click", () => {
+            const canvas = document.querySelector("#qr-codigo canvas");
+            if (!canvas) return qrMostrarAviso("El QR aún no está listo.", 2500);
+            const a = document.createElement("a");
+            a.href = canvas.toDataURL("image/png");
+            a.download = "qr-e-emotion.png";
+            a.click();
+            qrMostrarAviso("QR descargado.", 2500);
+        });
+
+        document.getElementById("qr-copiar").addEventListener("click", async () => {
+            try {
+                await navigator.clipboard.writeText(qrUrl);
+                qrMostrarAviso("Enlace copiado.", 2500);
+            } catch (e) {
+                qrMostrarAviso("No se pudo copiar el enlace.", 2500);
+            }
+        });
+    </script>
+
+    <script src="inicio.js"></script>
+</body>
+</html>

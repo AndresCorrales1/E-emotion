@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room Emocional - El Paraíso</title>
+    <link rel="stylesheet" href="escape.css">
+</head>
+<body>
+
+    <!-- --- PANTALLA DE INICIO --- -->
+    <main id="start-screen" class="screen active">
+        <header class="hero-banner">
+            <h1>Escape Room Emocional</h1>
+            <p class="subtitle">El laberinto de la mente</p>
+        </header>
+        <section class="content">
+            <p>Has quedado atrapado en el mundo de los pensamientos confusos y las emociones cruzadas. Para recuperar tu paz mental, deberás sintonizar con tu inteligencia emocional y resolver los retos de las 4 salas de la mente.</p>
+            <p>A medida que superes cada prueba, obtendrás una llave elemental: <strong>Autoconciencia, Empatía, Regulación y Automotivación</strong>.</p>
+            <p>Solo reuniendo las 4 llaves podrás abrir las puertas que custodian el acceso al **Paraíso de la Calma Interna**. ¿Estás listo?</p>
+            <button class="btn-main glow-purple" onclick="changeScreen('sala1')">Comenzar Aventura</button>
+        </section>
+    </main>
+
+    <!-- --- SALA 1: ADIVINA LA EMOCIÓN --- -->
+    <main id="sala1" class="screen">
+        <header class="room-header color-sala1">
+            <h2>Sala 1: El Espejo del Alma</h2>
+            <div class="progress"><span style="width: 25%"></span></div>
+        </header>
+        <section class="content">
+            <p>Analiza la situación e identifica la emoción primaria para obtener tu primera llave:</p>
+            
+            <article class="scenario-box">
+                <span class="emoji-display">🎭</span>
+                <p><em>"Mateo ha preparado una exposición durante semanas. Justo antes de salir al escenario, sus manos tiemblan, su corazón late muy rápido y piensa que todo saldrá mal."</em></p>
+            </article>
+
+            <nav class="options-grid">
+                <button class="btn-option" onclick="checkSala1('Ira')">Ira</button>
+                <button class="btn-option" onclick="checkSala1('Miedo / Ansiedad')">Miedo / Ansiedad</button>
+                <button class="btn-option" onclick="checkSala1('Tristeza')">Tristeza</button>
+                <button class="btn-option" onclick="checkSala1('Asco')">Asco</button>
+            </nav>
+            <p id="feedback-sala1" class="feedback"></p>
+        </section>
+    </main>
+
+    <!-- --- TRANSICIÓN 1 --- -->
+    <main id="transition1" class="screen page-center">
+        <section class="content">
+            <h2>¡Excelente Introspección! 🔑</h2>
+            <p class="key-icon">🗝️</p>
+            <p>Has reconocido el <strong>Miedo/Ansiedad</strong>. Esta emoción es una señal de alerta que intenta protegerte, aunque a veces exagera el peligro.</p>
+            <p>Consigues la <strong>Llave de la Autoconciencia</strong>.</p>
+            <button class="btn-main" onclick="startSala2()">Ir a la Sala 2</button>
+        </section>
+    </main>
+
+    <!-- --- SALA 2: MEMORIA EMOCIONAL --- -->
+    <main id="sala2" class="screen">
+        <header class="room-header color-sala2">
+            <h2>Sala 2: Conexiones Empáticas</h2>
+            <div class="progress"><span style="width: 50%"></span></div>
+        </header>
+        <section class="content">
+            <p>Encuentra las parejas de expresiones idénticas para sincronizar tu empatía.</p>
+            <nav class="memory-grid" id="memory-grid"><!-- JS genera las cartas --></nav>
+            <p id="feedback-sala2" class="feedback"></p>
+        </section>
+    </main>
+
+    <!-- --- TRANSICIÓN 2 --- -->
+    <main id="transition2" class="screen page-center">
+        <section class="content">
+            <h2>¡Mente Sincronizada! 🔑</h2>
+            <p class="key-icon">🗝️</p>
+            <p>Al emparejar los rostros, ejercitas tu capacidad de leer el lenguaje no verbal de los demás.</p>
+            <p>Consigues la <strong>Llave de la Empatía</strong>.</p>
+            <button class="btn-main" onclick="changeScreen('sala3')">Ir a la Sala 3</button>
+        </section>
+    </main>
+
+    <!-- --- SALA 3: REGULACIÓN EMOCIONAL --- -->
+    <main id="sala3" class="screen">
+        <header class="room-header color-sala3">
+            <h2>Sala 3: El Termómetro del Autocontrol</h2>
+            <div class="progress"><span style="width: 75%"></span></div>
+        </header>
+        <section class="content">
+            <p>Tu termómetro emocional está hirviendo debido a un momento de alta frustración (¡100°C!).</p>
+            
+            <figure class="thermometer-area">
+                <span class="thermo-bar"><mark id="thermo-fill" style="height: 100%;"></mark></span>
+                <figcaption id="thermo-text">100°C - ¡Ira Total!</figcaption>
+            </figure>
+
+            <p>Elige las acciones correctas para enfriar el termómetro hasta los 20°C (Calma):</p>
+
+            <nav class="actions-list">
+                <button class="btn-action" onclick="coolDown(1, -40, this)">Respirar profundamente en 4 tiempos (Caja de respiración)</button>
+                <button class="btn-action" onclick="coolDown(2, 30, this)">Gritarle a alguien para desahogar el impacto</button>
+                <button class="btn-action" onclick="coolDown(3, -40, this)">Tomar distancia física de la situación (Tiempo fuera)</button>
+                <button class="btn-action" onclick="coolDown(4, 20, this)">Actuar de inmediato sin pensar</button>
+            </nav>
+            <p id="feedback-sala3" class="feedback"></p>
+        </section>
+    </main>
+
+    <!-- --- TRANSICIÓN 3 --- -->
+    <main id="transition3" class="screen page-center">
+        <section class="content">
+            <h2>¡Termómetro Regulado! 🔑</h2>
+            <p class="key-icon">🗝️</p>
+            <p>Lograste enfriar el termómetro. La impulsividad aviva el fuego, mientras que la pausa consciente lo mitiga.</p>
+            <p>Consigues la <strong>Llave de la Regulación</strong>.</p>
+            <button class="btn-main" onclick="changeScreen('sala4')">Ir a la Última Sala</button>
+        </section>
+    </main>
+
+    <!-- --- SALA 4: CÓDIGO DE AUTOMOTIVACIÓN --- -->
+    <main id="sala4" class="screen">
+        <header class="room-header color-sala4">
+            <h2>Sala 4: El Código de la Resiliencia</h2>
+            <div class="progress"><span style="width: 90%"></span></div>
+        </header>
+        <section class="content">
+            <p>Estás frente al gran portón ancestral. Ordena los conceptos de arriba hacia abajo haciendo clic en los botones:</p>
+            
+            <section class="sequence-game">
+                <ol class="slots-container" id="slots-container">
+                    <li class="slot">1. ¿Por qué lo hago?</li>
+                    <li class="slot">2. El primer paso</li>
+                    <li class="slot">3. No rendirse</li>
+                    <li class="slot">4. Meta alcanzada</li>
+                </ol>
+                
+                <nav class="options-sequence" id="options-sequence">
+                    <button class="btn-seq" onclick="selectSequence('Persistencia', this)">Persistencia</button>
+                    <button class="btn-seq" onclick="selectSequence('Propósito', this)">Propósito</button>
+                    <button class="btn-seq" onclick="selectSequence('Logro', this)">Logro</button>
+                    <button class="btn-seq" onclick="selectSequence('Acción', this)">Acción</button>
+                </nav>
+            </section>
+
+            <footer class="action-footer">
+                <button class="btn-main font-glow" onclick="checkSala4()">✨ Insertar Llaves y Abrir el Paraíso ✨</button>
+                <button class="btn-secondary" onclick="resetSequence()">Reiniciar</button>
+            </footer>
+            <p id="feedback-sala4" class="feedback"></p>
+        </section>
+    </main>
+
+    <!-- --- PANTALLA FINAL: EL PARAÍSO EMOCIONAL --- -->
+    <main id="victory-screen" class="screen paradise-theme">
+        <header class="paradise-gates">
+            <h1>¡BIENVENIDO AL PARAÍSO MENTAL! 🕊️✨</h1>
+            <p class="paradise-subtitle">El santuario del equilibrio y la paz interior</p>
+        </header>
+        <section class="content">
+            <p class="paradise-intro">Las compuertas del caos se cierran y una brisa cálida inunda tu mente. Has transformado el laberinto en armonía usando tus 4 llaves maestras:</p>
+            <ul class="paradise-list">
+                <li>🌸 <strong>Autoconciencia:</strong> Tu luz para no caminar a ciegas en tus tormentas.</li>
+                <li>🤝 <strong>Empatía:</strong> El puente dorado para conectar sanamente con el mundo.</li>
+                <li>🍃 <strong>Regulación:</strong> Tu escudo de calma que apaga cualquier incendio de ira.</li>
+                <li>☀️ <strong>Automotivación:</strong> El motor resiliente que te impulsa hacia tus sueños.</li>
+            </ul>
+            <p class="paradise-quote"><strong>El paraíso no es un lugar sin problemas, es un estado mental capaz de atravesarlos sin perder la paz.</strong></p>
+            <button class="btn-paradise" onclick="resetGame()">Regresar al Mundo Real</button>
+        </section>
+    </main>
+
+    <script src="puntajes.js"></script>
+    <script src="escape.js"></script>
+</body>
+</html>

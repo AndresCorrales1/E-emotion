@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-emotion - Blogs</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Poppins:wght@300;400;600&display=swap');
+    </style>
+</head>
+<body>
+
+    <div class="dj-circle"></div>
+    
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/logo sin fondo.png" alt="logo sitio web">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Sobre nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="Test.html">Sentir </a></li>
+                <li><a href="Blogs.html" class="active">Blogs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="blogs-section">
+        <h1 class="section-title">BLOGS</h1>
+        
+        <div class="blogs-container">
+            
+            <section class="blog-card" id="card-guias">
+                <h2>📘 Tarjetas de Desahogo</h2>
+                
+                <div class="blog-card-content" id="contenido-estatico-guias">
+                    <div class="img-container-left">
+                        <img src="imagenes/img.blogs.png" class="img-guias" alt="Tristeza y Alegría">
+                    </div>
+                    <div class="blog-card-text">
+                        <ul>
+                             <li>suelta lo que te abruma hoy</li>
+                            <li>lee lo que otros usuarios han compartido</li>
+                            <li>expresa lo que sientes de forma 100% anonima</li>
+                            <li>un espacio seguro sin juicios ni respuestas</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="muro-ansiedad" class="contenido-interactivo despliegue-oculto">
+                    <div class="formulario-liberacion">
+                        <h3>¿Qué te gustaría soltar hoy?</h3>
+                        <p class="subtitulo-interactivo">Escribe aquí aquello que deseas liberar de forma 100% anónima. Este es un espacio seguro para soltar tus pensamientos; ten presente que tus palabras no recibirán respuesta ni juicio, simplemente se irán para darte tranquilidad. 💜.</p>
+                        <textarea id="nota-usuario" maxlength="200" placeholder="Escribe aquí lo que te abruma... (máx. 200 caracteres)"></textarea>
+                        <button class="btn-interactivo-enviar" onclick="soltarPensamiento()">Soltar pensamiento</button>
+                    </div>
+
+                    <div class="divisor-sutil"></div>
+
+                    <div class="muro-notas-grid" id="contenedor-muro">
+                        <div class="tarjeta-nota nota-azul">"A veces siento que no voy al ritmo de los demás, pero hoy me perdono por eso."</div>
+                        <div class="tarjeta-nota nota-rosa">"El sobrepensar me agota, pero estoy aprendiendo a regresar al presente."</div>
+                        <div class="tarjeta-nota nota-lavanda">"Está bien no tener todo bajo control todo el tiempo."</div>
+                    </div>
+                </div>
+
+                <button id="btn-master-guias" onclick="mostrarMuroGuias()">LEER MAS</button>
+            </section>
+
+            <img src="imagenes/cerebro.glo.png" class="center-brain" alt="Cerebro emocional">
+
+            <section class="blog-card" id="card-autoayuda">
+                <h2>🌱 Autoayuda y crecimiento personal</h2>
+                
+                <div class="blog-card-content" id="contenido-estatico-autoayuda">
+                    <img src="imagenes/nueva.png" class="img-autoayuda" alt="Alegría">
+                    <div class="blog-card-text">
+                        <ul>
+                        
+                            <li>acompañamiento positivo para  tus procesos de crecimiento</li>
+                            <li>⁠encuentro frases de apoyo para tus procesos de crecimiento</li>
+                            <li>Recibe reflexiones para fortalecer tu autoestima y bienestar </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="generador-impulsos" class="contenido-interactivo despliegue-oculto">
+                    <div class="contenedor-generador">
+                        <h3>Tu impulso de bienestar diario</h3>
+                        <p class="subtitulo-interactivo">Haz clic abajo para recibir una dosis de inspiración para tu evolución</p>
+                        
+                        <div class="recuadro-frase">
+                            <p id="texto-afirmacion">"Tu valor no disminuye por los errores del pasado. Hoy es una nueva oportunidad."</p>
+                        </div>
+                        
+                        <button class="btn-interactivo-generar" onclick="generarNuevaFrase()">Recibir frase de apoyo</button>
+                    </div>
+                </div>
+
+                <button id="btn-master-autoayuda" onclick="mostrarGeneradorAutoayuda()">LEER MAS</button>
+            </section>
+
+        </div>
+    </main>
+    <footer class="custom-footer">
+
+    <div class="footer-container">
+        
+        <a href="https://www.instagram.com/e_emotion01?igsh=MWoxMTg4eGlrMnR6Yw%3D%3D&utm_source=qr" target="_blank" class="footer-item">
+            <i class="fa-brands fa-instagram icon-instagram"></i>
+            <span class="footer-text">e_emotion01</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@e_emotion_?is_from_webapp=1&sender_device=pc" target="_blank" class="footer-item">
+            <i class="fa-brands fa-tiktok icon-tiktok"></i>
+            <span class="footer-text">e_emotion_</span>
+        </a>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.emotion2026@gmail.com&su=Contacto" class="footer-item">
+            <i class="fa-solid fa-envelope icon-email"></i>
+            <span class="footer-text">e.emotion2026@gmail.com</span>
+        </a>
+
+        <a href="tel:+574444448" class="footer-item phone-item">
+            <span class="footer-text weight-bold">Línea Amiga &nbsp;(604) 444 44 48</span>
+        </a>
+
+    </div>
+</footer>
+<!-- Contenedor Flotante de Ayuda -->
+    <div class="ayuda-flotante-container">
+        <!-- 💚 Botón 1: WhatsApp Oficial del Distrito de Medellín (Ideal para PC y Móvil) 💚 -->
+        <a href="https://api.whatsapp.com/send?phone=573016044444&text=Hola,%20necesito%20orientaci%C3%B3n%20psicol%C3%B3gica" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-ayuda btn-whatsapp" 
+           title="Chatear con el WhatsApp Oficial de Medellín">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Activar la linea amiga (Whatsapp)</span>
+        </a>
+
+        <!-- 📞 Botón 2: Llamada directa a la Línea Amiga 106 📞 -->
+        <a href="tel:106" class="btn-ayuda btn-106" title="Llamar a la Línea Amiga 106">
+            <i class="fa-solid fa-phone"></i>
+            <span> ¿Necesitas ayuda? Llamar al 106</span>
+        </a>
+    </div>
+    <script src="blogs.js"></script>
+</body>
+</html>

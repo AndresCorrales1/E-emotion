@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-emotion</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Poppins:wght@300;400;600&display=swap');
+    </style>
+</head>
+<body>
+    <div class="dj-circle"></div>
+    <header class="header">
+        <div class="logo">
+            <img src="/E-emotion/imagenes/logo sin fondo.png" alt="logo sitio web">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Juegos</a></li>
+                <li><a href="#">Rueda Emocional</a></li>
+                <li><a href="#" class="active">Blogs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+</body>
+<main class="seccion-blog">
+
+  <article class="tarjeta-blog">
+    <div class="contenido-principal">
+      <div class="header-tarjeta">
+        <span class="icono-categoria">📘</span>
+        <h2>Guías prácticas</h2>
+      </div>
+      
+      <div class="cuerpo-tarjeta">
+        <ul class="lista-articulos">
+          <li>Cómo calmar un ataque de ansiedad en 5 minutos</li>
+          <li>Técnicas de respiración para regular emociones</li>
+          <li>Cómo poner límites sin sentir culpa</li>
+          <li>Cómo dejar de sobrepensar</li>
+        </ul>
+      </div>
+      
+      <button class="btn-leer-mas" onclick="mostrarContenido('muro-ansiedad', this)">LEER MÁS</button>
+    </div>
+
+    <div id="muro-ansiedad" class="contenido-interactivo despliegue-oculto">
+      <div class="formulario-liberacion">
+        <h3>¿Qué te gustaría soltar hoy?</h3>
+        <p class="subtitulo-interactivo">Tu pensamiento será completamente anónimo y ayudará a otros a saber que no están solos.</p>
+        <textarea id="nota-usuario" maxlength="200" placeholder="Escribe aquí lo que te abruma... (máx. 200 caracteres)"></textarea>
+        <button class="btn-interactivo-enviar" onclick="soltarPensamiento()">Soltar pensamiento</button>
+      </div>
+
+      <div class="divisor-sutil"></div>
+
+      <div class="muro-notas-grid">
+        <div class="tarjeta-nota nota-azul">
+          "A veces siento que no voy al ritmo de los demás, pero hoy me perdono por eso."
+        </div>
+        <div class="tarjeta-nota nota-rosa">
+          "El sobrepensar me agota, pero estoy aprendiendo a respirar y regresar al presente."
+        </div>
+        <div class="tarjeta-nota nota-lavanda">
+          "Está bien no tener todo bajo control todo el tiempo. Respiro profundamente."
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="tarjeta-blog">
+    <div class="contenido-principal">
+      <div class="header-tarjeta">
+        <span class="icono-categoria">🌱</span>
+        <h2>Autoayuda y crecimiento personal</h2>
+      </div>
+      
+      <div class="cuerpo-tarjeta">
+        <ul class="lista-articulos">
+          <li>Cómo mejorar la autoestima</li>
+          <li>Cómo construir hábitos emocionales sanos</li>
+          <li>Cómo manejar rupturas o duelos</li>
+          <li>Cómo reconectar contigo mismo</li>
+          <li>Estrategias de crecimiento como persona</li>
+        </ul>
+      </div>
+      
+      <button class="btn-leer-mas" onclick="mostrarContenido('generador-impulsos', this)">LEER MÁS</button>
+    </div>
+
+    <div id="generador-impulsos" class="contenido-interactivo despliegue-oculto">
+      <div class="contenedor-generador">
+        <h3>Tu impulso de bienestar diario</h3>
+        <p class="subtitulo-interactivo">Haz clic abajo para recibir una afirmación o un micro-paso para tu crecimiento hoy.</p>
+        
+        <div class="recuadro-frase">
+          <p id="texto-afirmacion">"Tu valor no disminuye por los errores del pasado. Hoy es una nueva oportunidad."</p>
+        </div>
+        
+        <button class="btn-interactivo-generar" onclick="generarNuevaFrase()">Recibir mi recordatorio</button>
+      </div>
+    </div>
+  </article>
+
+
+</main>

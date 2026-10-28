@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rompecabezas de las Emociones</title>
+    <link rel="stylesheet" href="rompecabezas.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        
+        <div id="pantalla-seleccion">
+            <h1>¿Cómo te sientes hoy?</h1>
+            <p>Selecciona una emoción para comenzar tu rompecabezas:</p>
+            <div class="grid-emociones">
+                <button class="btn-e" onclick="iniciarJuego('aburrimiento')">😒 Aburrimiento</button>
+                <button class="btn-e" onclick="iniciarJuego('asombro')">😮 Asombro</button>
+                <button class="btn-e" onclick="iniciarJuego('alegria')">😊 Alegría</button>
+                <button class="btn-e" onclick="iniciarJuego('angustia')">😰 Angustia</button>
+                <button class="btn-e" onclick="iniciarJuego('tristeza')">😢 Tristeza</button>
+                <button class="btn-e" onclick="iniciarJuego('miedo')">😨 Miedo</button>
+                <button class="btn-e" onclick="iniciarJuego('enfado')">😡 Enfado</button>
+                <button class="btn-e" onclick="iniciarJuego('disgusto')">🤢 Disgusto</button>
+                <button class="btn-e" onclick="iniciarJuego('calma')">😌 Calma</button>
+                <button class="btn-e" onclick="iniciarJuego('satisfaccion')">😎 Satisfacción</button>
+                <button class="btn-e" onclick="iniciarJuego('verguenza')">😳 Vergüenza</button>
+                <button class="btn-e" onclick="iniciarJuego('ansiedad')">😬 Ansiedad</button>
+                <button class="btn-e" onclick="iniciarJuego('frustracion')">😤 Frustración</button>
+                <button class="btn-e" onclick="iniciarJuego('desesperacion')">😩 Desesperación</button>
+            </div>
+        </div>
+
+        <div id="pantalla-juego" class="oculto">
+            <h2 id="titulo-emocion">EMOCIÓN</h2>
+            <h3 id="nivel-actual">Nivel 1</h3>
+            <p>Haz clic en una pieza y luego en otra para intercambiarlas de lugar hasta armar la imagen.</p>
+            
+            <div id="tablero"></div>
+            
+            <button class="btn-regresar" onclick="irAlMenu()">⬅ Volver al Menú</button>
+        </div>
+
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="contenido-modal">
+            <h2>¡Excelente Trabajo! 🎉</h2>
+            <p id="frase-ganadora">Frase de reflexión aquí...</p>
+            <button id="btn-accion" onclick="manejarSiguiente()">Siguiente Nivel</button>
+        </div>
+    </div>
+
+
+    <div id="galeria-imagenes-html" style="display: none;">
+        <img id="img-aburrimiento-1" src="imagenes/aburrimiento1.jpg.jpg" alt="Aburrimiento Nivel 1">
+        <img id="img-aburrimiento-2" src="imagenes/aburrimiento2.jpg.jpg" alt="Aburrimiento Nivel 2">
+        <img id="img-aburrimiento-3" src="imagenes/aburrimiento3.jpg.jpg" alt="Aburrimiento Nivel 3">
+
+        <img id="img-alegria-1" src="imagenes/alegria1.jpg.jpg" alt="Alegría Nivel 1">
+        <img id="img-alegria-2" src="imagenes/Alegria2.jpg" alt="Alegría Nivel 2">
+        <img id="img-alegria-3" src="imagenes/alegria3..jpg" alt="Alegría Nivel 3">
+
+        <img id="img-asombro-1" src="imagenes/asombro1.jpg.jpg" alt="Asombro Nivel 1">
+        <img id="img-asombro-2" src="imagenes/asombro2.jpg.jpg" alt="Asombro Nivel 2">
+        <img id="img-asombro-3" src="imagenes/asombro3.jpg.jpg" alt="Asombro Nivel 3">
+
+        <img id="img-angustia-1" src="imagenes/angustia1..jpg" alt="Angustia Nivel 1">
+        <img id="img-angustia-2" src="imagenes/angustia2.jpg" alt="Angustia Nivel 2">
+        <img id="img-angustia-3" src="imagenes/angustia3..jpg" alt="Angustia Nivel 3">
+
+        <img id="img-tristeza-1" src="imagenes/tristeza1.jfif" alt="Tristeza Nivel 1">
+        <img id="img-tristeza-2" src="imagenes/tristeza2.jfif" alt="Tristeza Nivel 2">
+        <img id="img-tristeza-3" src="imagenes/tristeza3.jfif" alt="Tristeza Nivel 3">
+
+        <img id="img-miedo-1" src="imagenes/miedo1.jpg" alt="Miedo Nivel 1">
+        <img id="img-miedo-2" src="imagenes/miedo2.jpg" alt="Miedo Nivel 2">
+        <img id="img-miedo-3" src="imagenes/miedo3.jpg" alt="Miedo Nivel 3">
+
+        <img id="img-enfado-1" src="imagenes/enfado1.jpg" alt="Enfado Nivel 1">
+        <img id="img-enfado-2" src="imagenes/enfado2.jpg" alt="Enfado Nivel 2">
+        <img id="img-enfado-3" src="imagenes/enfado3.jpg" alt="Enfado Nivel 3">
+
+        <img id="img-disgusto-1" src="imagenes/disgusto1..jpg" alt="Disgusto Nivel 1">
+        <img id="img-disgusto-2" src="imagenes/disgusto2..jpg" alt="Disgusto Nivel 2">
+        <img id="img-disgusto-3" src="imagenes/disgusto3..jpg" alt="Disgusto Nivel 3">
+
+        <img id="img-calma-1" src="imagenes/calma1..jpg" alt="Calma Nivel 1">
+        <img id="img-calma-2" src="imagenes/calma2..jpg" alt="Calma Nivel 2">
+        <img id="img-calma-3" src="imagenes/calma4..jpg" alt="Calma Nivel 3">
+
+        <img id="img-satisfaccion-1" src="imagenes/satisfaccion1..jpg" alt="Satisfacción Nivel 1">
+        <img id="img-satisfaccion-2" src="imagenes/satisfaccion2..jpg" alt="Satisfacción Nivel 2">
+        <img id="img-satisfaccion-3" src="imagenes/satisfaccion3..jpg" alt="Satisfacción Nivel 3">
+
+        <img id="img-verguenza-1" src="imagenes/verguenza1..jpg" alt="Vergüenza Nivel 1">
+        <img id="img-verguenza-2" src="imagenes/verguenza2.jpg" alt="Vergüenza Nivel 2">
+        <img id="img-verguenza-3" src="imagenes/verguenza3..jpg" alt="Vergüenza Nivel 3">
+
+        <img id="img-ansiedad-1" src="imagenes/ansiedad1..jpg" alt="Ansiedad Nivel 1">
+        <img id="img-ansiedad-2" src="imagenes/ansiedad2..jpg" alt="Ansiedad Nivel 2">
+        <img id="img-ansiedad-3" src="imagenes/ansiedad3..jpg" alt="Ansiedad Nivel 3">
+
+        <img id="img-frustracion-1" src="imagenes/frustacion1..jpg" alt="Frustración Nivel 1">
+        <img id="img-frustracion-2" src="imagenes/frustracion2..jpg" alt="Frustración Nivel 2">
+        <img id="img-frustracion-3" src="imagenes/frustacion3..jpg" alt="Frustración Nivel 3">
+
+        <img id="img-desesperacion-1" src="imagenes/desesperacion1..jpg" alt="Desesperación Nivel 1">
+        <img id="img-desesperacion-2" src="imagenes/desesperacion2..jpg" alt="Desesperación Nivel 2">
+        <img id="img-desesperacion-3" src="imagenes/desesperacion3..jpg" alt="Desesperación Nivel 3">
+    </div>
+
+    <script src="puntajes.js"></script>
+    <script src="rompecabezas.js"></script>
+</body>
+</html>

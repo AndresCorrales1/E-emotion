@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Dash! - ¡Atrapa el Flow!</title>
+    <link rel="stylesheet" href="atrapar.css">
+    <!-- Importamos una fuente más gamer/moderna desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="game-card">
+        <header>
+            <h1>EMOTION <span class="pop-text">DASH!</span></h1>
+            <div class="stats-bar">
+                <div class="stat-box">
+                    <span class="label">PUNTOS</span>
+                    <span id="score" class="value">0</span>
+                </div>
+                <div class="stat-box highlight">
+                    <span class="label">COMBO</span>
+                    <span id="combo" class="value">x1</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">TIEMPO</span>
+                    <span id="time" class="value">30</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="target-zone">
+            <p>ATRAPA ÚNICAMENTE:</p>
+            <div id="target-display" class="target-bubble">
+                <span id="target-emoji">😀</span>
+                <span id="target-name">Felicidad</span>
+            </div>
+        </div>
+
+        <div id="stage">
+            <!-- Las emociones estallarán aquí -->
+            <div id="start-screen" class="overlay">
+                <button id="start-btn">¡JUGAR AHORA!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="puntajes.js"></script>
+    <script src="atrapar.js"></script>
+</body>
+</html>

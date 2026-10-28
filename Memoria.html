@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-emotion: Juego de Memoria</title>
+    <link rel="stylesheet" href="memoria.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Breve Bienvenida Inicial -->
+        <div class="welcome-screen" id="welcome-screen">
+            <h1>¡Bienvenido/a a tu espacio de calma y diversión! ✨</h1>
+            <p class="welcome-desc">Pon a prueba tu memoria mientras conectas con tus emociones.
+Encuentra cada pareja, avanza de nivel y descubre pequeños consejos que pueden hacer tu día mejor💙.</p>
+            <button class="btn-next" onclick="initGame()">¡Empezar a Jugar! 🎮</button>
+        </div>
+
+        <!-- Contenido principal del juego -->
+        <div class="game-content-wrapper" id="game-content" style="opacity: 0; pointer-events: none; transition: opacity 0.5s ease;">
+            <h1>Mundo Emociones</h1>
+            <p class="game-subtitle">¡Encuentra las parejas y descubre que tan agil eres!🌟</p>
+            
+            <div class="stats-panel">
+                <!-- DETALLE: Ahora el límite visual es 10 -->
+                <div class="stat-box">Nivel: <span id="level-val">1</span>/10</div>
+                <div class="stat-box">Movimientos: <span id="moves-val">0</span></div>
+                <div class="stat-box">Tiempo: <span id="time-val">00:00</span></div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <div class="grid-board" id="board">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Nivel Completado -->
+    <div class="modal" id="modal-next">
+        <div class="modal-content">
+            <h2 id="modal-title">¡Excelente Trabajo! 🎉</h2>
+            <div class="stars-rating" id="modal-stars"></div>
+            <p id="modal-text">Has superado el nivel.</p>
+            <div class="advice-box" id="modal-advice"></div>
+            <button class="btn-next" onclick="advanceLevel()">Siguiente Nivel</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="puntajes.js"></script>
+    <script src="memoria.js"></script>
+</body>
+</html>

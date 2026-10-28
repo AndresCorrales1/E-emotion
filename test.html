@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Emocional</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="dj-circle test"></div>
+   
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/logo sin fondo.png" alt="logo sitio web">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Sobre nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="Test.html"class="active">Sentir </a></li>
+                <li><a href="Blogs.html" >Blogs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 class="main-title">RUEDA EMOCIONAL ✨</h1>
+
+    <div class="interface-container">
+       
+        <div class="left-column">
+            <h2>¿Cómo te sientes hoy?</h2>
+            <p>Haz clic en una emoción de la rueda para descubrir más sobre ella</p>
+           
+            <div class="wheel-placeholder">
+                <svg id="wheel-petals" width="500" height="500" viewBox="0 0 500 500" style="max-width:100%; height:auto;"></svg>
+               
+                <div class="debug-buttons" style="margin-top: 20px;">
+                    <button onclick="cambiarEmocion('enojo')">Enfado</button>
+                    <button onclick="cambiarEmocion('anticipacion')">Anticipación</button>
+                    <button onclick="cambiarEmocion('alegria')">Alegría</button>
+                    <button onclick="cambiarEmocion('tristeza')">Tristeza</button>
+                    <button onclick="cambiarEmocion('asco')">Asco</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="emotion-card" id="emotionCard">
+            <div class="card-header">
+                <span class="main-emoji" id="mainEmoji">😡</span>
+                <div class="header-text">
+                    <h2 class="emotion-title" id="emotionTitle">Enojo</h2>
+                    <p class="emotion-description" id="emotionDescription">
+                        El enojo surge cuando sentimos que algo es injusto, no se respeta lo que pensamos o no podemos lograr lo que necesitamos.
+                    </p>
+                </div>
+            </div>
+           
+            <div class="slider-wrapper">
+                <div class="emoji-indicators">
+                    <span class="scale-emoji" id="emojiBajo">🤬</span>
+                    <span class="scale-emoji" id="emojiMedio">😡</span>
+                    <span class="scale-emoji" id="emojiAlto">😐</span>
+                    <span class="scale-emoji" id="emojiExtra1">🙂</span>
+                    <span class="scale-emoji" id="emojiExtra2">👑</span>
+                </div>
+               
+                <div class="range-container">
+                    <input type="range" min="0" max="7" value="0" class="custom-slider" id="intensitySlider">
+                </div>
+            </div>
+
+            <div class="info-sections">
+                <div class="info-box">
+                    <h3 class="section-heading">Puede aparecer cuando:</h3>
+                    <ul class="info-list" id="causesList"></ul>
+                </div>
+               
+                <div class="info-box">
+                    <h3 class="section-heading">¿Qué puedes hacer?</h3>
+                    <ul class="info-list" id="actionsList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <footer class="custom-footer">
+
+    <div class="footer-container">
+        
+        <a href="https://www.instagram.com/e_emotion01?igsh=MWoxMTg4eGlrMnR6Yw%3D%3D&utm_source=qr" target="_blank" class="footer-item">
+            <i class="fa-brands fa-instagram icon-instagram"></i>
+            <span class="footer-text">e_emotion01</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@e_emotion_?is_from_webapp=1&sender_device=pc" target="_blank" class="footer-item">
+            <i class="fa-brands fa-tiktok icon-tiktok"></i>
+            <span class="footer-text">e_emotion_</span>
+        </a>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.emotion2026@gmail.com&su=Contacto" class="footer-item">
+            <i class="fa-solid fa-envelope icon-email"></i>
+            <span class="footer-text">e.emotion2026@gmail.com</span>
+        </a>
+
+        <a href="tel:+574444448" class="footer-item phone-item">
+            <span class="footer-text weight-bold">Línea Amiga &nbsp;(604) 444 44 48</span>
+        </a>
+
+    </div>
+</footer>
+<!-- Contenedor Flotante de Ayuda -->
+    <div class="ayuda-flotante-container">
+        <!-- 💚 Botón 1: WhatsApp Oficial del Distrito de Medellín (Ideal para PC y Móvil) 💚 -->
+        <a href="https://api.whatsapp.com/send?phone=573016044444&text=Hola,%20necesito%20orientaci%C3%B3n%20psicol%C3%B3gica" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-ayuda btn-whatsapp" 
+           title="Chatear con el WhatsApp Oficial de Medellín">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Activar la linea amiga (Whatsapp)</span>
+        </a>
+
+        <!-- 📞 Botón 2: Llamada directa a la Línea Amiga 106 📞 -->
+        <a href="tel:106" class="btn-ayuda btn-106" title="Llamar a la Línea Amiga 106">
+            <i class="fa-solid fa-phone"></i>
+            <span> ¿Necesitas ayuda? Llamar al 106</span>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

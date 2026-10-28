@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-emotion - Juegos</title>
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dj-circle"></div>
+    
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/logo sin fondo.png" alt="logo sitio web">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Sobre nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="juegos.html" class="active">Juegos</a></li>
+                <li><a href="Test.html">Sentir</a></li>
+                <li><a href="Blogs.html">Blogs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN DE JUEGOS -->
+    <section class="games-section">
+        <div class="games-header">
+          <h1>explora y comprende 🎮</h1>
+          <h2>Tus emociones</h2>
+          <p>Juega, aprende y desarrolla tu inteligencia emocional</p>
+        </div>
+
+        <div class="cards-container">
+            <div class="game-card">
+                <div class="image-emotion">
+                    <img src="imagenes/apareamiento.png" alt="Relacionar emociones">
+                </div>
+                <p class="game-description">
+                    "Relaciona cada emoción con su significado y aprende sobre los sentimientos de forma divertida y dinámica"
+                </p>
+                <a href="Memoria.html" target="_blank" class="btn-play">
+                    <i class="fa-solid fa-gamepad"></i> jugar
+                </a>
+            </div>
+
+            <div class="game-card">
+                <div class="image-emotion">
+                    <img src="imagenes/rompecabezas juego.jpg" alt="Rompecabezas">
+                </div>
+                <p class="game-description">
+                    "Une las piezas y descubre el significado de cada emoción"
+                </p>
+                <a href="rompecabezas.html" target="_blank" class="btn-play">
+                    <i class="fa-solid fa-gamepad"></i> jugar
+                </a>
+            </div>
+
+            <div class="game-card">
+                <div class="image-emotion">
+                    <img src="imagenes/atrapar juego.jpg" alt="Atrapar la emoción">
+                </div>
+                <p class="game-description">
+                    Es un juego dinámico donde aparecen diferentes emociones en pantalla y el jugador debe atrapar únicamente la emoción correcta antes de que desaparezca.
+                </p>
+                <a href="atrapar.html" target="_blank" class="btn-play">
+                    <i class="fa-solid fa-gamepad"></i> jugar
+                </a>
+            </div>
+
+            <div class="game-card">
+                <div class="image-emotion">
+                    <img src="imagenes/escape juego.webp" alt="Escape Room">
+                </div>
+                <p class="game-description">
+                    Supera retos y resuelve pistas sobre las emociones para avanzar y lograr escapar.
+                </p>
+                <a href="escape.html" target="_blank" class="btn-play">
+                    <i class="fa-solid fa-gamepad"></i> jugar
+                </a>
+            </div>
+        </div>
+    </section>
+
+  <!-- TARJETA SPLIT: REGISTRO + TABLA DE POSICIONES -->
+<div class="auth-ranking-container">
+    <div class="split-card">
+        
+        <!-- LADO IZQUIERDO: REGISTRO CON FECHA DIVIDIDA (AÑO -> MES -> DÍA) -->
+        <section class="login-section">
+            <h2>Registrarse</h2>
+            <form id="registerForm" class="login-form">
+                <div class="input-group">
+                    <input type="text" id="reg-nombre" placeholder=" ID Anónimo (ej. Jugador #1234)" required>
+                </div>
+
+                <!-- SECCIÓN DE FECHA DESGLOSADA -->
+                <div class="fecha-container">
+                    <label class="fecha-label">Fecha de Registro:</label>
+                    <div class="fecha-inputs">
+                        <!-- 1. AÑO -->
+                        <div class="input-group">
+                            <input type="number" id="reg-anio" placeholder="Año (AAAA)" min="1900" max="2099" required>
+                        </div>
+                        <!-- 2. MES -->
+                        <div class="input-group">
+                            <select id="reg-mes" required>
+                                <option value="" disabled selected>Mes</option>
+                                <option value="01">Enero</option>
+                                <option value="02">Febrero</option>
+                                <option value="03">Marzo</option>
+                                <option value="04">Abril</option>
+                                <option value="05">Mayo</option>
+                                <option value="06">Junio</option>
+                                <option value="07">Julio</option>
+                                <option value="08">Agosto</option>
+                                <option value="09">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                        </div>
+                        <!-- 3. DÍA -->
+                        <div class="input-group">
+                            <input type="number" id="reg-dia" placeholder="Día (DD)" min="1" max="31" required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <span>Registrarse</span>
+                    <i class="fa-solid fa-user-plus"></i>
+                </button>
+            </form>
+        </section>
+
+        <!-- DIVISOR VERTICAL -->
+        <div class="divider"></div>
+
+        <!-- LADO DERECHO: TABLA DE POSICIONES -->
+        <section class="ranking-card-split">
+            <div class="ranking-header">
+                <h2>Tabla de Posiciones 🏆</h2>
+                <p id="subtitulo-juego">Los mejores puntajes de Memoria</p>
+            </div>
+
+            <!-- Botones de filtro -->
+            <div class="tabs-juegos">
+                <button class="tab-btn active" data-juego="memoria">Memoria</button>
+                <button class="tab-btn" data-juego="rompecabezas">Rompecabezas</button>
+                <button class="tab-btn" data-juego="diana">Atrapa la Emoción</button>
+                <button class="tab-btn" data-juego="escape">Escape Room</button>
+            </div>
+
+            <table class="tabla-ranking">
+                <thead>
+                    <tr>
+                        <th>POSICIÓN</th>
+                        <th>JUGADOR</th>
+                        <th>PUNTAJE</th>
+                        <th>TIEMPO</th>
+                    </tr>
+                </thead>
+                <tbody id="filas-ranking"></tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+
+    <!-- FOOTER -->
+    <footer class="custom-footer">
+        <div class="footer-container">
+            <a href="https://www.instagram.com/e_emotion01?igsh=MWoxMTg4eGlrMnR6Yw%3D%3D&utm_source=qr" target="_blank" class="footer-item">
+                <i class="fa-brands fa-instagram icon-instagram"></i>
+                <span class="footer-text">e_emotion01</span>
+            </a>
+
+            <a href="https://www.tiktok.com/@e_emotion_?is_from_webapp=1&sender_device=pc" target="_blank" class="footer-item">
+                <i class="fa-brands fa-tiktok icon-tiktok"></i>
+                <span class="footer-text">e_emotion_</span>
+            </a>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e.emotion2026@gmail.com&su=Contacto" class="footer-item">
+                <i class="fa-solid fa-envelope icon-email"></i>
+                <span class="footer-text">e.emotion2026@gmail.com</span>
+            </a>
+
+            <a href="tel:+574444448" class="footer-item phone-item">
+                <span class="footer-text weight-bold">Línea Amiga &nbsp;(604) 444 44 48</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- BOTONES FLOTANTES DE AYUDA -->
+    <div class="ayuda-flotante-container">
+        <a href="https://api.whatsapp.com/send?phone=573016044444&text=Hola,%20necesito%20orientaci%C3%B3n%20psicol%C3%B3gica" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-ayuda btn-whatsapp" 
+           title="Chatear con el WhatsApp Oficial de Medellín">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Activar la linea amiga (Whatsapp)</span>
+        </a>
+
+        <a href="tel:106" class="btn-ayuda btn-106" title="Llamar a la Línea Amiga 106">
+            <i class="fa-solid fa-phone"></i>
+            <span> ¿Necesitas ayuda? Llamar al 106</span>
+        </a>
+    </div>
+
+    <!-- MODAL REGISTRO DE PUNTAJE -->
+    <div id="modal-registro" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <h3>¡Partida Completada! 🎉</h3>
+            <p>Ingresa tu nombre para guardar tu puntaje en la Tabla de Posiciones.</p>
+            
+            <form id="form-registro" onsubmit="guardarPuntaje(event)">
+                <div class="input-grupo">
+                    <label for="nombre-jugador">Nombre o Apodo:</label>
+                    <input type="text" id="nombre-jugador" placeholder="Ej. Camila R." required maxlength="20">
+                </div>
+
+                <input type="hidden" id="registro-juego" value="memoria">
+                <input type="hidden" id="registro-puntaje" value="0">
+                <input type="hidden" id="registro-tiempo" value="0s">
+
+                <div class="modal-botones">
+                    <button type="button" class="btn-cancelar" onclick="cerrarModal()">Omitir</button>
+                    <button type="submit" class="btn-guardar">Guardar Puntaje</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Externo -->
+    <script src="juegos.js"></script>
+</body>
+</html>
