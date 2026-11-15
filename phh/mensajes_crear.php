@@ -32,7 +32,7 @@ if ($st->fetchColumn() >= 20) {
     responder(['ok' => false, 'error' => 'Llegaste al límite de hoy. Vuelve mañana 💜'], 429);
 }
 
-$crisis = detectar_crisis($texto);
+$crisis = detectar_crisis($texto, $pdo);
 $estado = $crisis ? 'revision' : 'visible';
 
 try {

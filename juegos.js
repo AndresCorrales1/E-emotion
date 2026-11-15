@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 0. Si ya está registrado en este navegador, mostrar saludo en lugar del formulario
+    // Si ya está registrado en el, muestra saludo en lugar del formulario
     mostrarSesion();
 
-    // 1. Manejo del Formulario de Registro (Nombre + Año, Mes, Día)
+    // Manejo del Formulario de Registro (Nombre + Año, Mes, Día)
     const registerForm = document.getElementById('registerForm');
 
     if (registerForm) {

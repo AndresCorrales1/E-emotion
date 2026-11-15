@@ -1,4 +1,4 @@
-// Envía el puntaje al servidor y avisa al jugador. Se usa en los 4 juegos.
+// avisa el puntaje del jugador
 (function () {
     let avisoRegistroMostrado = false;
 
