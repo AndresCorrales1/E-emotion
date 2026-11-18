@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Si ya está registrado en el, muestra saludo en lugar del formulario
     mostrarSesion();
 
-    // Manejo del Formulario de Registro (Nombre + Año, Mes, Día)
+    // Manejo del Formulario de Registro (solo ID; la fecha la pone el servidor)
     const registerForm = document.getElementById('registerForm');
 
     if (registerForm) {
@@ -13,16 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const inputNombre = document.getElementById('reg-nombre').value.trim();
             const nombre = inputNombre !== '' ? inputNombre : generarAliasAnonimo();
 
-            const anio = document.getElementById('reg-anio').value;
-            const mes = document.getElementById('reg-mes').value;
-            const dia = document.getElementById('reg-dia').value;
-
             try {
                 const resp = await fetch('phh/register.php', {
                     method: 'POST',
                     credentials: 'same-origin',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nombre_usuario: nombre, anio, mes, dia })
+                    body: JSON.stringify({ nombre_usuario: nombre })
                 });
                 const datos = await resp.json();
 
@@ -81,7 +77,60 @@ async function mostrarSesion() {
             location.reload();
         });
 
-        seccion.append(titulo, texto, boton);
+        // Botón: modificar el ID actual (se conservan los puntajes)
+        const btnModificar = document.createElement('button');
+        btnModificar.type = 'button';
+        btnModificar.className = 'btn-submit';
+        btnModificar.style.marginTop = '10px';
+        btnModificar.textContent = 'Modificar mi ID';
+        btnModificar.addEventListener('click', async () => {
+            const nuevo = prompt('Escribe tu nuevo ID (3 a 30 caracteres):', datos.usuario);
+            if (nuevo === null) return;
+            const nombre = nuevo.trim();
+            if (nombre === '' || nombre === datos.usuario) return;
+            try {
+                const resp = await fetch('phh/modificar_id.php', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nombre_usuario: nombre })
+                });
+                const r = await resp.json();
+                if (!resp.ok || !r.ok) {
+                    alert(r.error || 'No se pudo cambiar el ID.');
+                    return;
+                }
+                alert(`ID actualizado: ${r.usuario}`);
+                mostrarSesion();
+                filtrarRanking(juegoActivo);
+            } catch (err) {
+                alert('No se pudo conectar con el servidor.');
+            }
+        });
+
+        // Botón: borrar el ID (también borra sus puntajes)
+        const btnBorrar = document.createElement('button');
+        btnBorrar.type = 'button';
+        btnBorrar.className = 'btn-submit';
+        btnBorrar.style.marginTop = '10px';
+        btnBorrar.textContent = 'Borrar mi ID';
+        btnBorrar.addEventListener('click', async () => {
+            const seguro = confirm('Se borrará tu ID y todos tus puntajes. Esta acción no se puede deshacer. ¿Quieres continuar?');
+            if (!seguro) return;
+            try {
+                const resp = await fetch('phh/borrar_id.php', { method: 'POST', credentials: 'same-origin' });
+                const r = await resp.json();
+                if (!resp.ok || !r.ok) {
+                    alert(r.error || 'No se pudo borrar el ID.');
+                    return;
+                }
+                location.reload();
+            } catch (err) {
+                alert('No se pudo conectar con el servidor.');
+            }
+        });
+
+        seccion.append(titulo, texto, boton, btnModificar, btnBorrar);
     } catch (err) {
         // Si falla la consulta, se deja el formulario visible
     }

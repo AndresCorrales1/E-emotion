@@ -59,36 +59,48 @@
             .catch(function () { /* si falla, simplemente no se muestra el texto */ });
     }
 
-    //Conteo
+    // Envía el conteo. sendBeacon sigue funcionando aunque la página se cierre o pase
+    // a segundo plano al abrir tel: o WhatsApp (en el celular fetch suele cancelarse).
+    function enviarConteo(boton) {
+        const cuerpo = JSON.stringify({ boton: boton });
+
+        if (navigator.sendBeacon) {
+            const encolado = navigator.sendBeacon(
+                'phh/contar_ayuda.php',
+                new Blob([cuerpo], { type: 'text/plain' })
+            );
+            if (encolado) { marcarContado(boton, true); return; }
+        }
+
+        // Respaldo si el navegador no soporta sendBeacon
+        fetch('phh/contar_ayuda.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: cuerpo,
+            keepalive: true
+        }).then(function (r) {
+            if (r.ok) { marcarContado(boton, true); return; }
+            totales[boton] = Math.max(0, totales[boton] - 1);
+            pintar(boton);
+        }).catch(function () {
+            totales[boton] = Math.max(0, totales[boton] - 1);
+            pintar(boton);
+        });
+    }
+
+    // Conteo
     document.addEventListener('click', function (e) {
         for (const selector in BOTONES) {
             if (!e.target.closest(selector)) continue;
 
             const boton = BOTONES[selector];
             if (yaContado(boton)) return;
-            marcarContado(boton, true);
 
             // Se refleja de inmediato en pantalla
             totales[boton] += 1;
             pintar(boton);
 
-            // keepalive permite que la peticion termine aunque la pagina cambie (tel:, nueva pestaña)
-            fetch('phh/contar_ayuda.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ boton: boton }),
-                keepalive: true
-            }).then(function (r) {
-                if (!r.ok) {
-                    marcarContado(boton, false);
-                    totales[boton] = Math.max(0, totales[boton] - 1);
-                    pintar(boton);
-                }
-            }).catch(function () {
-                marcarContado(boton, false);
-                totales[boton] = Math.max(0, totales[boton] - 1);
-                pintar(boton);
-            });
+            enviarConteo(boton);
             return;
         }
     }, true);

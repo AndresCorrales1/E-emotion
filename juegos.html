@@ -31,7 +31,7 @@
     <!-- SECCIÓN DE JUEGOS -->
     <section class="games-section">
         <div class="games-header">
-          <h1>explora y comprende 🎮</h1>
+          <h1>Explora y comprende 🎮</h1>
           <h2>Tus emociones</h2>
           <p>Juega, aprende y desarrolla tu inteligencia emocional</p>
         </div>
@@ -42,7 +42,7 @@
                     <img src="imagenes/apareamiento.png" alt="Relacionar emociones">
                 </div>
                 <p class="game-description">
-                    "Relaciona cada emoción con su significado y aprende sobre los sentimientos de forma divertida y dinámica"
+                    Memoria: "Encuentra las parejas de la misma emoción, ejercita tu memoria y avanza de nivel mientras aumenta la cantidad de piezas. ¡Aprende jugando!"
                 </p>
                 <a href="Memoria.html" target="_blank" class="btn-play">
                     <i class="fa-solid fa-gamepad"></i> jugar
@@ -54,7 +54,7 @@
                     <img src="imagenes/rompecabezas juego.jpg" alt="Rompecabezas">
                 </div>
                 <p class="game-description">
-                    "Une las piezas y descubre el significado de cada emoción"
+                    Rompecabezas: "Une las piezas para completar cada imagen y avanzar de nivel.A medida que progresas, la dificultad aumenta y aparecen rompecabezas con mas piezas.¡Completa cada nivel y continua avanzando!"
                 </p>
                 <a href="rompecabezas.html" target="_blank" class="btn-play">
                     <i class="fa-solid fa-gamepad"></i> jugar
@@ -66,7 +66,7 @@
                     <img src="imagenes/atrapar juego.jpg" alt="Atrapar la emoción">
                 </div>
                 <p class="game-description">
-                    Es un juego dinámico donde aparecen diferentes emociones en pantalla y el jugador debe atrapar únicamente la emoción correcta antes de que desaparezca.
+                    Atrapa las emociones: "Es un juego dinámico donde aparecen diferentes emociones en pantalla y el jugador debe atrapar únicamente la emoción correcta antes de que desaparezca."
                 </p>
                 <a href="atrapar.html" target="_blank" class="btn-play">
                     <i class="fa-solid fa-gamepad"></i> jugar
@@ -78,7 +78,7 @@
                     <img src="imagenes/escape juego.webp" alt="Escape Room">
                 </div>
                 <p class="game-description">
-                    Supera retos y resuelve pistas sobre las emociones para avanzar y lograr escapar.
+                    Escape Room: "Supera retos y resuelve pistas sobre las emociones para avanzar y lograr escapar."
                 </p>
                 <a href="escape.html" target="_blank" class="btn-play">
                     <i class="fa-solid fa-gamepad"></i> jugar
@@ -99,38 +99,7 @@
                     <input type="text" id="reg-nombre" placeholder=" ID Anónimo (ej. Jugador #1234)" required>
                 </div>
 
-                <!-- SECCIÓN DE FECHA DESGLOSADA -->
-                <div class="fecha-container">
-                    <label class="fecha-label">Fecha de Registro:</label>
-                    <div class="fecha-inputs">
-                        <!-- 1. AÑO -->
-                        <div class="input-group">
-                            <input type="number" id="reg-anio" placeholder="Año (AAAA)" min="1900" max="2099" required>
-                        </div>
-                        <!-- 2. MES -->
-                        <div class="input-group">
-                            <select id="reg-mes" required>
-                                <option value="" disabled selected>Mes</option>
-                                <option value="01">Enero</option>
-                                <option value="02">Febrero</option>
-                                <option value="03">Marzo</option>
-                                <option value="04">Abril</option>
-                                <option value="05">Mayo</option>
-                                <option value="06">Junio</option>
-                                <option value="07">Julio</option>
-                                <option value="08">Agosto</option>
-                                <option value="09">Septiembre</option>
-                                <option value="10">Octubre</option>
-                                <option value="11">Noviembre</option>
-                                <option value="12">Diciembre</option>
-                            </select>
-                        </div>
-                        <!-- 3. DÍA -->
-                        <div class="input-group">
-                            <input type="number" id="reg-dia" placeholder="Día (DD)" min="1" max="31" required>
-                        </div>
-                    </div>
-                </div>
+                <p class="fecha-auto" style="margin:4px 0 16px;font-size:.9rem;opacity:.8;">📅 Tu fecha de registro se guardo automaticamente.</p>
 
                 <button type="submit" class="btn-submit">
                     <span>Registrarse</span>
@@ -240,6 +209,7 @@
 
     <!-- JavaScript Externo -->
     <script src="juegos.js"></script>
+    <script src="navbar.js"></script>
     <script src="contador_ayuda.js"></script>
 </body>
 </html>

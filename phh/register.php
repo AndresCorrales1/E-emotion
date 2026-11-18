@@ -11,19 +11,14 @@ if (stripos($_SERVER['CONTENT_TYPE'] ?? '', 'application/json') !== 0) {
 
 $d      = json_decode(file_get_contents('php://input'), true) ?: [];
 $nombre = trim($d['nombre_usuario'] ?? '');
-$anio   = (int) ($d['anio'] ?? 0);
-$mes    = (int) ($d['mes'] ?? 0);
-$dia    = (int) ($d['dia'] ?? 0);
 
 if (!preg_match('/^[\p{L}\p{N}_.#\- ]{3,30}$/u', $nombre)) {
     responder(['ok' => false, 'error' => 'El ID debe tener 3 a 30 caracteres (letras, números, espacios, # _ . -).'], 422);
 }
-if ($anio < 1900 || $anio > 2099 || !checkdate($mes, $dia, $anio)) {
-    responder(['ok' => false, 'error' => 'La fecha no es válida.'], 422);
-}
 
 $token = bin2hex(random_bytes(32));
-$fecha = sprintf('%04d-%02d-%02d', $anio, $mes, $dia);
+// La fecha de registro la pone el servidor (hora de Colombia), no la persona
+$fecha = (new DateTime('now', new DateTimeZone('America/Bogota')))->format('Y-m-d');
 
 try {
     $st = $pdo->prepare('INSERT INTO usuarios (nombre_usuario, token_hash, fecha_registro) VALUES (?, ?, ?)');
